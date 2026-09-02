@@ -9,6 +9,8 @@ void main() {
     System.out.println(getCantidadOrejasConejo(5));
     int[] arreglo = {3,2,22,1,3,5,8,7,11,12,20};
     System.out.println(valorMasGrandeArreglo(arreglo));
+    System.out.println(apareceCaracterSucesivo("Holaa",'a','a'));
+    System.out.println(apareceCaracterSucesivo("Holaa",'h','a'));
 }
 
 public String serieN0(int n){
@@ -44,11 +46,22 @@ public int valorMasGrandeArreglo(int[] arreglo){
     return valorMasGrandeArreglo(arreglo,0,arreglo[0]);
 }
 
-public int valorMasGrandeArreglo(int[] arreglo, int indice, int valorMasGrande){
+private int valorMasGrandeArreglo(int[] arreglo, int indice, int valorMasGrande){
     if(indice == arreglo.length -1) return valorMasGrande;
 
     if(valorMasGrande < arreglo[indice+1]) valorMasGrande = arreglo[indice+1];
     indice ++;
     return valorMasGrandeArreglo(arreglo,indice,valorMasGrande);
+}
+
+public boolean apareceCaracterSucesivo(String cadena, char c1, char c2){
+    return apareceCaracterSucesivo(cadena,c1,c2,0);
+}
+
+private boolean apareceCaracterSucesivo(String cadena, char c1, char c2, int indice){
+    if(indice == cadena.length() -1) return false;
+    if(cadena.charAt(indice) == c1 && cadena.charAt(indice+1) == c2) return true;
+    indice++;
+    return apareceCaracterSucesivo(cadena,c1,c2,indice);
 }
 
