@@ -7,6 +7,8 @@ void main() {
     System.out.println(sumaRecursiva(4,2));
     System.out.println(cadenaFibonacci(4));
     System.out.println(getCantidadOrejasConejo(5));
+    int[] arreglo = {3,2,22,1,3,5,8,7,11,12,20};
+    System.out.println(valorMasGrandeArreglo(arreglo));
 }
 
 public String serieN0(int n){
@@ -37,3 +39,16 @@ public int getCantidadOrejasConejo(int conejos){
     if (conejos ==0) return 0;
     return getCantidadOrejasConejo(conejos-1) +2;
 }
+
+public int valorMasGrandeArreglo(int[] arreglo){
+    return valorMasGrandeArreglo(arreglo,0,arreglo[0]);
+}
+
+public int valorMasGrandeArreglo(int[] arreglo, int indice, int valorMasGrande){
+    if(indice == arreglo.length -1) return valorMasGrande;
+
+    if(valorMasGrande < arreglo[indice+1]) valorMasGrande = arreglo[indice+1];
+    indice ++;
+    return valorMasGrandeArreglo(arreglo,indice,valorMasGrande);
+}
+
