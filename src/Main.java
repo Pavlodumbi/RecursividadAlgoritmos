@@ -6,6 +6,7 @@ void main() {
     System.out.println(serie0N(4));
     System.out.println(sumaRecursiva(4,2));
     System.out.println(cadenaFibonacci(4));
+    System.out.println(getCantidadOrejasConejo(5));
 }
 
 public String serieN0(int n){
@@ -31,3 +32,8 @@ public String cadenaFibonacci(int n){
 }
 
 //
+
+public int getCantidadOrejasConejo(int conejos){
+    if (conejos ==0) return 0;
+    return getCantidadOrejasConejo(conejos-1) +2;
+}
