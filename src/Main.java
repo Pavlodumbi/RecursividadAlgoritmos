@@ -13,6 +13,7 @@ void main() {
     System.out.println(prueba+" Suma de los numeros: "+sumaEnString(prueba));
     String prueba1 = "Apto B, Westnd Street, Nueva York, NY";
     System.out.println(prueba1+" Suma de los numeros: "+sumaEnString(prueba1));
+    System.out.println("Fibonacci hasta 8: "+fibonacci(8));
 }
 
 public String serieN0(int n){
@@ -79,4 +80,20 @@ public int sumaEnString(String cadena,int suma,int indice){
         return suma;
     }
     return sumaEnString(cadena,suma,indice+1);
+
+}
+
+public String fibonacci(int objetivo){
+    return fibonacci(objetivo,0,1,"0,",0);
+}
+
+public String fibonacci(int objetivo, int actual,int anterior,String cadena,int n){
+    if (n==objetivo){
+        return cadena+(anterior+actual);
+    }
+    int suma= actual+anterior;
+    anterior=actual;
+    actual=suma;
+    cadena+=suma+",";
+    return fibonacci(objetivo,actual,anterior,cadena,n+1);
 }
