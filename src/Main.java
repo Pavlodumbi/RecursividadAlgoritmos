@@ -2,25 +2,66 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
-    System.out.println(serieN0(4));
-    System.out.println(serie0N(4));
-    System.out.println(sumaRecursiva(4,2));
-    System.out.println(cadenaFibonacci(4));
-    System.out.println(getCantidadOrejasConejo(5));
-    int[] arreglo = {3,2,22,1,3,5,8,7,11,12,20};
-    System.out.println(valorMasGrandeArreglo(arreglo));
-    System.out.println(apareceCaracterSucesivo("Holaa",'a','a'));
-    System.out.println(apareceCaracterSucesivo("Holaa",'h','a'));
-    System.out.println(esPrimo(9));
-    int [] arreglo = {1,12,13,5,8,20,100};;
-    System.out.println("indice: "+verificarArreglo(arreglo,7));
-    String prueba = "Apto 4B, 215 West 92nd Street, Nueva York, NY 10025";
-    System.out.println(prueba+" Suma de los numeros: "+sumaEnString(prueba));
-    String prueba1 = "Apto B, Westnd Street, Nueva York, NY";
-    System.out.println(prueba1+" Suma de los numeros: "+sumaEnString(prueba1));
-    System.out.println("Fibonacci hasta 8: "+fibonacci(8));
+    System.out.println("Metodo que regresa una cadena con los numeros de N0");
+    System.out.println("Cadena de 9 a 0: "+serieN0(9));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo que regresa una cadena con los numeros de 0N");
+    System.out.println("Cadena de 0 a 9: "+serie0N(9));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo que calcula una multiplicacion entre dos numeros en base a sus sumas consecutivas: ");
+    System.out.println("5*9= "+sumaRecursiva(5,9));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo que recibe un valore y recibe una cadena con los N valores de la cadena de fibonacci:");
+    System.out.println("15 numeros de la serie de fibonacci: "+fibonacci(15));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo que verifica si un numero es primo o no:");
+    System.out.println("113 es primo? "+esPrimo(113));
+    System.out.println("58 es primo? "+esPrimo(58));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo que verifica si un valor x se encuentra en un arreglo, en caso de no encontrarse devuelve -1:");
+    int [] arreglo ={15,999,40,27,39,87,101,56,30,4};
+    System.out.print("Arreglo: ");
+    System.out.println("");
+    for (int i = 0; i< arreglo.length; i++){
+        System.out.print(arreglo[i]+",");
+    }
+    System.out.println("");
+    System.out.println("Numero a buscar: 30");
+    System.out.println("Indice: "+verificarArreglo(arreglo,30));
+    System.out.println("Numero a buscar: 100");
+    System.out.println("Indice: "+verificarArreglo(arreglo,100));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo para buscar el valor mas grande en un arreglo: ");
+    System.out.print("Arreglo: ");
+    for (int i = 0; i< arreglo.length; i++){
+        System.out.print(arreglo[i]+",");
+    }
+    System.out.println("");
+    System.out.println("Numero mas grande: "+valorMasGrandeArreglo(arreglo));
+    System.out.println("---------------------------------");
+    System.out.println("Metodo que recibe una cadena y verifica si un caracter c1 aparece inmediatamente antes que un caracter c2: ");
+    String cadena="Apto 4B, 215 West 92nd Street, Nueva York, NY 10025";
+    System.out.println("Cadena: "+cadena);
+    System.out.println("Caracter c1: o");
+    System.out.print("Caracter c2: r");
+    System.out.println("");
+    System.out.println("Se cumple? "+apareceCaracterSucesivo(cadena,'o','r'));
+    System.out.println("Caracter c1: o");
+    System.out.print("Caracter c2: k");
+    System.out.println("");
+    System.out.println("Se cumple? "+apareceCaracterSucesivo(cadena,'o','k'));
+    System.out.println("-----------------------------------");
+    System.out.println("Un metodo que regresa una cantidad de conejos y devuelve la cantidad de orejas: ");
+    System.out.println("Cantidad de conejos: 54");
+    System.out.println("Cantidad de orejas: "+getCantidadOrejasConejo(54));
+    System.out.println("-----------------------------------");
+    System.out.println("Metodo que recibe una cadena y tiene que retornar la suma de los digitos que se encuentren en la cadena: ");
+    System.out.println("Cadena: "+cadena);
+    System.out.println("Suma: "+sumaEnString(cadena));
+    String cadenaMala="Apto, West nd Street, Nueva York, NY";
+    System.out.println("Cadena sin numeros: "+cadenaMala);
+    System.out.println("Suma: "+sumaEnString(cadenaMala));
 }
-
 public String serieN0(int n){
     if (n == 0) return n+"";
     return n + serieN0(n-1) + "";
@@ -37,11 +78,6 @@ public int sumaRecursiva(int n1, int n2){
     return n1 + sumaRecursiva(n1,n2-1);
 }
 
-public String cadenaFibonacci(int n){
-    if (n==0) return "" + 0;
-    int suma = n + n-1;
-    return cadenaFibonacci(n-1) + suma + "";
-}
 
 //
 
