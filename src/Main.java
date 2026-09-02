@@ -11,6 +11,7 @@ void main() {
     System.out.println(valorMasGrandeArreglo(arreglo));
     System.out.println(apareceCaracterSucesivo("Holaa",'a','a'));
     System.out.println(apareceCaracterSucesivo("Holaa",'h','a'));
+    System.out.println(esPrimo(9));
 }
 
 public String serieN0(int n){
@@ -64,4 +65,18 @@ private boolean apareceCaracterSucesivo(String cadena, char c1, char c2, int ind
     indice++;
     return apareceCaracterSucesivo(cadena,c1,c2,indice);
 }
+
+private boolean esPrimo(int n){
+    return esPrimo(n, (int) Math.sqrt(n));
+}
+//Para determinar si un numero es primom se usa la formula de la raiz de n y dividir entre todos los valores abajo de esa raiz
+private boolean esPrimo(int n, int indice){
+    if (indice == 1) return true;
+
+    float es = (float) n/indice;
+    if(es % 1.0 == 0.0) return false;
+    return esPrimo(n,indice-1);
+}
+
+
 
