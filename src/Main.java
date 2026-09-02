@@ -7,6 +7,8 @@ void main() {
     System.out.println(sumaRecursiva(4,2));
     System.out.println(cadenaFibonacci(4));
     System.out.println(getCantidadOrejasConejo(5));
+    int [] arreglo = {1,12,13,5,8,20,100};;
+    System.out.println("indice: "+verificarArreglo(arreglo,7));
 }
 
 public String serieN0(int n){
@@ -36,4 +38,24 @@ public String cadenaFibonacci(int n){
 public int getCantidadOrejasConejo(int conejos){
     if (conejos ==0) return 0;
     return getCantidadOrejasConejo(conejos-1) +2;
+}
+
+public int verificarArreglo(int [] arreglo,int buscar){
+    return verificarArreglo(arreglo,0,buscar);
+}
+
+public int verificarArreglo(int [] arreglo,int indice,int buscar){
+    if (indice==arreglo.length-1){
+        if (arreglo[indice]==buscar){
+            return indice;
+        }
+        else {
+            return -1;
+        }
+    }
+
+    if (arreglo[indice]==buscar){
+        return indice;
+    }
+    return verificarArreglo(arreglo,indice+1,buscar);
 }
