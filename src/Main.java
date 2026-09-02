@@ -9,6 +9,10 @@ void main() {
     System.out.println(getCantidadOrejasConejo(5));
     int [] arreglo = {1,12,13,5,8,20,100};;
     System.out.println("indice: "+verificarArreglo(arreglo,7));
+    String prueba = "Apto 4B, 215 West 92nd Street, Nueva York, NY 10025";
+    System.out.println(prueba+" Suma de los numeros: "+sumaEnString(prueba));
+    String prueba1 = "Apto B, Westnd Street, Nueva York, NY";
+    System.out.println(prueba1+" Suma de los numeros: "+sumaEnString(prueba1));
 }
 
 public String serieN0(int n){
@@ -58,4 +62,21 @@ public int verificarArreglo(int [] arreglo,int indice,int buscar){
         return indice;
     }
     return verificarArreglo(arreglo,indice+1,buscar);
+}
+
+public int sumaEnString(String cadena){
+    return sumaEnString(cadena,0,0);
+}
+
+public int sumaEnString(String cadena,int suma,int indice){
+    if (cadena.charAt(indice)-'0'>=0&&cadena.charAt(indice)-'0'<=9){
+        if (indice==cadena.length()-1){
+            return suma+cadena.charAt(indice)-'0';
+        }
+        return sumaEnString(cadena,suma+cadena.charAt(indice)-'0',indice+1);
+    }
+    if (indice==cadena.length()-1){
+        return suma;
+    }
+    return sumaEnString(cadena,suma,indice+1);
 }
